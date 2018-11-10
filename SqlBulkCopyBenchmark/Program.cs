@@ -35,8 +35,13 @@ namespace SqlBulkCopyBenchmark
             Run("Non-indexed, .TableLock, 100 workers, 5000 batch size", "Guids", dt, SqlBulkCopyOptions.TableLock, workers: 100, batchSize: 5000);
             Run("Non-indexed, .TableLock, 100 workers, 1000000 batch size", "Guids", dt, SqlBulkCopyOptions.TableLock, workers: 100, batchSize: 100000);
 
+            Run("Non-indexed, .UseInternalTransaction, 100 workers, 1000 batch size", "Guids", dt, SqlBulkCopyOptions.UseInternalTransaction, workers: 100, batchSize: 1000);
             Run("Non-indexed, .UseInternalTransaction, 100 workers, 5000 batch size", "Guids", dt, SqlBulkCopyOptions.UseInternalTransaction, workers: 100, batchSize: 5000);
+            Run("Non-indexed, .UseInternalTransaction, 100 workers, 100000 batch size", "Guids", dt, SqlBulkCopyOptions.UseInternalTransaction, workers: 100, batchSize: 100000);
+
+            Run("Non-indexed, .TableLock | .UseInternalTransaction, 100 workers, 1000 batch size", "Guids", dt, SqlBulkCopyOptions.TableLock | SqlBulkCopyOptions.UseInternalTransaction, workers: 100, batchSize: 1000);
             Run("Non-indexed, .TableLock | .UseInternalTransaction, 100 workers, 5000 batch size", "Guids", dt, SqlBulkCopyOptions.TableLock | SqlBulkCopyOptions.UseInternalTransaction, workers: 100, batchSize: 5000);
+            Run("Non-indexed, .TableLock | .UseInternalTransaction, 100 workers, 100000 batch size", "Guids", dt, SqlBulkCopyOptions.TableLock | SqlBulkCopyOptions.UseInternalTransaction, workers: 100, batchSize: 100000);
 
             RunWithTransaction("Non-indexed, external transaction, default options, 100 workers, 1000 batch size", "Guids", dt, SqlBulkCopyOptions.Default, workers: 100, batchSize: 1000);
             RunWithTransaction("Non-indexed, external transaction, default options, 100 workers, 5000 batch size", "Guids", dt, SqlBulkCopyOptions.Default, workers: 100, batchSize: 5000);
@@ -54,8 +59,13 @@ namespace SqlBulkCopyBenchmark
             Run("Indexed, .TableLock, 100 workers, 5000 batch size", "Guids_IDX", dt, SqlBulkCopyOptions.TableLock, workers: 100, batchSize: 5000);
             Run("Indexed, .TableLock, 100 workers, 1000000 batch size", "Guids_IDX", dt, SqlBulkCopyOptions.TableLock, workers: 100, batchSize: 100000);
 
+            Run("Indexed, .UseInternalTransaction, 100 workers, 1000 batch size", "Guids_IDX", dt, SqlBulkCopyOptions.UseInternalTransaction, workers: 100, batchSize: 1000);
             Run("Indexed, .UseInternalTransaction, 100 workers, 5000 batch size", "Guids_IDX", dt, SqlBulkCopyOptions.UseInternalTransaction, workers: 100, batchSize: 5000);
+            Run("Indexed, .UseInternalTransaction, 100 workers, 100000 batch size", "Guids_IDX", dt, SqlBulkCopyOptions.UseInternalTransaction, workers: 100, batchSize: 100000);
+
+            Run("Indexed, .TableLock | .UseInternalTransaction, 100 workers, 1000 batch size", "Guids_IDX", dt, SqlBulkCopyOptions.TableLock | SqlBulkCopyOptions.UseInternalTransaction, workers: 100, batchSize: 1000);
             Run("Indexed, .TableLock | .UseInternalTransaction, 100 workers, 5000 batch size", "Guids_IDX", dt, SqlBulkCopyOptions.TableLock | SqlBulkCopyOptions.UseInternalTransaction, workers: 100, batchSize: 5000);
+            Run("Indexed, .TableLock | .UseInternalTransaction, 100 workers, 100000 batch size", "Guids_IDX", dt, SqlBulkCopyOptions.TableLock | SqlBulkCopyOptions.UseInternalTransaction, workers: 100, batchSize: 100000);
 
             RunWithTransaction("Indexed, external transaction, default options, 100 workers, 1000 batch size", "Guids_IDX", dt, SqlBulkCopyOptions.Default, workers: 100, batchSize: 1000);
             RunWithTransaction("Indexed, external transaction, default options, 100 workers, 5000 batch size", "Guids_IDX", dt, SqlBulkCopyOptions.Default, workers: 100, batchSize: 5000);
